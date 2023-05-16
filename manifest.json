@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "テキスト読み上げ拡張機能",
+  "version": "1.0.0",
+  "description": "Webページ上のテキストを読み上げる拡張機能",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "host_permissions",
+    "tts",
+    "<all_urls>",
+    "http://127.0.0.1:50021/*",
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}

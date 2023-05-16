@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>テキスト読み上げ拡張機能</title>
+    <style>
+      body {
+        width: 200px;
+        font-family: Arial, sans-serif;
+        padding: 10px;
+        background-color: #fff;
+      }
+      h1 {
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
+
+      .toggle-button-004 {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 50px;
+        height: 25px;
+        border-radius: 50px;
+        box-sizing: content-box;
+        background-color: #ff8d8d33;
+        cursor: pointer;
+        transition: background-color 0.4s;
+      }
+
+      .toggle-button-004:has(:checked) {
+        background-color: #75bbff33;
+      }
+
+      .toggle-button-004::before {
+        position: absolute;
+        left: 2.5px;
+        width: 21px;
+        height: 21px;
+        border-radius: 50%;
+        background-color: #ff8d8d;
+        content: "";
+        transition: left 0.4s;
+      }
+
+      .toggle-button-004:has(:checked)::before {
+        left: 25px;
+        background-color: #75bbff;
+      }
+
+      .toggle-button-004::after {
+        position: absolute;
+        left: 13px;
+        transform: translateX(-50%);
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.9em;
+        content: "OFF";
+        transition: left 0.4s;
+      }
+
+      .toggle-button-004:has(:checked)::after {
+        left: 36px;
+        content: "ON";
+      }
+
+      .toggle-button-004 input {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>テキスト読み上げ</h1>
+    <label class="toggle-button-004">
+      <input type="checkbox" id="readButton" />
+    </label>
+    <script src="popup.js"></script>
+  </body>
+</html>
